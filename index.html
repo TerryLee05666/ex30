@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互動式按鈕</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 50px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        
+        /* 模擬圖片中的方框樣式 */
+        .box {
+            border: 1px solid #b0b0b0;
+            width: 200px;
+            height: 180px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        /* 文字樣式 (使用 serif 字體以符合圖片外觀) */
+        .text-content {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 28px;
+            color: black;
+            margin-top: 10px;
+        }
+        
+        /* 按鈕容器及樣式 */
+        .btn-container {
+            margin-bottom: 10px;
+        }
+        
+        button {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            padding: 6px 16px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+        }
+
+        button:active {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div id="dynamicText" class="text-content">Hello</div>
+        <div class="btn-container">
+            <button id="interactiveButton">Button</button>
+        </div>
+    </div>
+
+    <script>
+        const textElement = document.getElementById('dynamicText');
+        const buttonElement = document.getElementById('interactiveButton');
+
+        // 當滑鼠移入按鈕時 (Mouse over) -> 改變顏色為洋紅色
+        buttonElement.addEventListener('mouseover', () => {
+            textElement.style.color = '#FF00FF'; 
+        });
+
+        // 當滑鼠移出按鈕時 (Mouse out) -> 恢復顏色為黑色
+        buttonElement.addEventListener('mouseout', () => {
+            textElement.style.color = 'black';
+        });
+
+        // 當點擊按鈕時 (Mouse click) -> 改變文字內容
+        buttonElement.addEventListener('click', () => {
+            textElement.textContent = 'Mouse Click';
+        });
+    </script>
+</body>
+</html>
